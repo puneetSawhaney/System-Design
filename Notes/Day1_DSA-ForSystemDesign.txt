@@ -1,0 +1,594 @@
+
+
+ 📅 Day 1 – DSA Foundations for System Design
+
+Date: 19/04/2026
+
+---
+
+---- Point ---- 1
+
+* Learning Data Structures and Algorithms for System Design
+
+* Focus is not deep DSA, only what is needed
+
+* Data exists in many formats
+
+* Example:
+
+  * Login system stores password as hash
+  * Stored as key-value pair
+  * Can be stored using map or Redis
+
+* Social media → users are connected
+
+---
+
+ Proper Explanation
+
+When we talk about system design, everything starts with data.
+
+Example:
+
+* User logs in → system handles username + password
+* Social media → users, posts, likes
+* Payments → transactions
+
+So before thinking about APIs or services, we ask:
+
+ “How is this data stored?”
+
+That’s where data structures come in.
+
+---
+
+Important: 
+
+Social media is not a tree.
+
+* Tree → one parent, limited structure
+* Social media → one user connects to many users
+  → This is a graph
+
+---
+
+Important: Real Understanding
+
+If you choose wrong data structure:
+
+* System becomes slow
+* Hard to scale
+* Difficult to maintain
+
+---
+
+---- Point ---- 2
+
+
+
+* Algorithm = operations on data
+
+* Data Structure = storing data
+
+* Linear:
+
+  * Array
+  * LinkedList
+  * Stack
+  * Queue
+
+* Non-linear:
+
+  * Tree
+  * Graph
+
+---
+
+ Proper Explanation
+
+Think like this:
+
+* Data structure = how data is arranged
+* Algorithm = what you do with that data
+
+Example:
+
+* Data structure → array
+* Algorithm → search, sort
+
+---
+
+Important: Why both matter together
+
+If you pick:
+
+* Good data structure + bad algorithm → slow
+* Bad data structure + good algorithm → still slow
+
+You need both correct.
+
+---
+
+Important: Linear vs Non-linear
+
+* Linear → data in sequence
+  Example: array [1,2,3,4]
+
+* Non-linear → data connected in different ways
+  Example: graph, tree
+
+---
+
+---- Point ---- 3
+
+
+
+* Array:
+
+  * Same type data
+  * Stored in continuous memory
+  * Access using index
+
+* Types:
+
+  * 1D, 2D, Multi-dimensional
+
+---
+
+ Proper Explanation
+
+Array is simple but very powerful.
+
+Important: Why array is fast
+
+Because of indexing
+
+Example:
+
+* a[3] → directly goes to memory location
+  → no searching needed
+
+That’s why:
+👉 Access time = O(1)
+
+---
+
+Important: Problem with array
+
+* Size is fixed
+* If you insert in middle → shifting needed
+
+Example:
+[1,2,3,4] → insert 5 at index 1
+→ shift all elements
+
+---
+
+Important: Real system usage
+
+Array is used when:
+
+* Fast access needed
+* Data size is predictable
+
+---
+
+---- Point ---- 4
+
+
+
+* Overlapping intervals
+* Merge using:
+
+  * start = min
+  * end = max
+
+---
+
+ Proper Explanation
+
+This is a very important pattern.
+
+Important: What is happening?
+
+You are checking:
+
+> “Do two time ranges clash?”
+
+Example:
+(1,3) and (2,6)
+→ 2 is inside 1–3
+→ overlap
+
+---
+
+Important: Why merging is needed
+
+Instead of storing:
+(1,3), (2,6)
+
+We store:
+(1,6)
+
+→ cleaner and easier to process
+
+---
+
+Important: Real usage
+
+* Calendar booking
+* Meeting scheduling
+* Hotel reservations
+
+---
+
+Important: Important step you missed
+
+Always:
+
+1. Sort intervals
+2. Then merge
+
+---
+
+---- Point ---- 5
+
+
+
+* Prefix sum → running total
+
+---
+
+ Proper Explanation
+
+Normally, if you want sum of part of array:
+You run loop every time
+
+That is slow.
+
+---
+
+Important: Prefix sum idea
+
+You store sum once, and reuse it.
+
+Example:
+[1,2,3,4]
+
+Prefix:
+[1,3,6,10]
+
+Now:
+Sum from index 1 to 3:
+= prefix[3] - prefix[0]
+
+---
+
+Important: Why this is powerful
+
+Without prefix:
+
+* Time = O(n) each time
+
+With prefix:
+
+* Time = O(1)
+
+---
+
+Important: Real usage
+
+* Reports
+* Analytics dashboards
+* Financial data
+
+---
+
+---- Point ---- 6
+
+
+
+* Two pointer
+* Use map if not sorted
+
+---
+
+ Proper Explanation
+
+Important: Two pointer
+
+Instead of checking all pairs:
+You use two pointers
+
+Example:
+[2,3,7,11,15], target = 9
+
+* Start left = 2
+* Right = 15
+* Move based on sum
+
+---
+
+Important: Why it works
+
+Because array is sorted
+→ you can decide direction
+
+---
+
+Important: If not sorted
+
+You use map:
+
+Store values and check:
+target - current
+
+---
+
+Important: Real understanding
+
+* Two pointer → less memory
+* Map → faster but more memory
+
+---
+
+---- Point ---- 7
+
+
+
+* Matrix rotation
+* Linear search
+
+---
+
+ Proper Explanation
+
+Important: Matrix rotation
+
+Steps:
+
+1. Transpose matrix
+2. Reverse rows
+
+This changes direction of data
+
+---
+
+Important: Why useful
+
+* Image rotation
+* Game logic
+* Grid-based problems
+
+---
+
+Important: Linear search
+
+Check one by one
+
+Problem:
+
+* Slow for large data
+
+---
+
+---- Point ---- 8
+
+
+
+* Binary search
+* Sorting
+
+---
+
+ Proper Explanation
+
+Important: Binary search
+
+Works only on sorted data
+
+Steps:
+
+1. Find middle
+2. Compare
+3. Go left or right
+
+---
+
+Important: Why fast
+
+Every step:
+
+* Data is cut in half
+
+So:
+
+* Time = O(log n)
+
+---
+
+Important: Real usage
+
+* Databases
+* Search engines
+* Large datasets
+
+---
+
+Important: Sorting
+
+Sorting helps:
+
+* Faster searching
+* Better data processing
+
+---
+
+---- Point ---- 9
+
+
+
+* LinkedList
+* Stack
+* Queue
+* Tree
+* Graph
+
+---
+
+ Proper Explanation
+
+Important: LinkedList
+
+Each element has:
+
+* value
+* pointer to next
+
+Good for:
+
+* frequent insert/delete
+
+Bad for:
+
+* searching
+
+---
+
+Important: Stack
+
+* Last In First Out
+
+Example:
+Undo operation
+
+---
+
+Important: Queue
+
+* First In First Out
+
+Example:
+Order processing
+
+---
+
+Important: Tree
+
+* Hierarchical structure
+
+---
+
+Important: Graph
+
+* Many connections
+
+---
+
+ 📄 Extra Concepts Required
+
+---
+
+ 1. Time Complexity (Important)
+
+This tells:
+
+> “How much time will increase when data increases?”
+
+Example:
+
+* 10 items → fast
+* 1 million → slow?
+
+---
+
+Important: Types
+
+* O(1) → always same time
+* O(n) → grows with data
+* O(log n) → very efficient
+
+---
+
+Important: Why it matters
+
+In real systems:
+
+* Data is huge
+
+So bad complexity = slow system
+
+---
+
+ 2. Trade-offs
+
+You cannot get everything perfect.
+
+Example:
+
+Array:
+
+* Fast access
+* Hard to insert
+
+LinkedList:
+
+* Easy insert
+* Slow access
+
+---
+
+Important: Real thinking
+
+Always ask:
+
+> What is more important here? speed or flexibility?
+
+---
+
+ 3. Graph vs Tree
+
+Tree:
+
+* One parent
+* No cycles
+
+Graph:
+
+* Multiple connections
+
+---
+
+Important: Real usage
+
+* Tree → file system
+* Graph → social media
+
+---
+
+ 4. Scalability Thinking
+
+Start asking:
+
+* Can this handle large data?
+* Will this slow down?
+* Can it be improved?
+
+---
+
+Important: Example
+
+Searching:
+
+* Loop → slow
+* HashMap → fast
+
+---
+
+Important: Real systems use
+
+* Caching tools like Redis
+* Distributed storage
+
+---
+
