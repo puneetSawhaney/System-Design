@@ -1,0 +1,662 @@
+
+#  22 – Graph Basics
+
+==> Graph
+
+A graph is a non-linear data structure where nodes (vertices) are connected using edges. Unlike trees, graphs can have multiple connections and cycles.
+
+Why it matters:
+Graphs are everywhere in real systems like social networks, maps, and recommendation engines. Understanding graphs is the foundation of many system design problems.
+
+---
+
+==> Nodes and Edges
+
+Nodes represent entities, and edges represent relationships between them.
+
+Why it matters:
+Every real-world system (users, services, locations) can be modeled as nodes and their interactions as edges.
+
+---
+
+==> Types of Graphs
+
+-> Undirected Graph
+
+Connections go both ways, meaning if A is connected to B, B is also connected to A.
+
+Why it matters:
+Used in systems where relationships are mutual, like friendships or network connectivity.
+
+---
+
+-> Directed Graph
+
+Connections have direction, meaning A → B does not imply B → A.
+
+Why it matters:
+Important for modeling flows like APIs, task dependencies, or follower systems.
+
+---
+
+-> Cyclic Graph
+
+A graph that contains a cycle, meaning you can come back to the same node.
+
+Why it matters:
+Helps in detecting loops in systems like deadlocks, dependency cycles, or routing paths.
+
+---
+
+-> Weighted Graph
+
+Edges have weights (cost, distance, time, etc.).
+
+Why it matters:
+Used in real-world systems like maps, pricing systems, and network latency calculations.
+
+---
+
+==> Graph Representation
+
+-> Adjacency Matrix
+
+A 2D matrix where 1 represents a connection and 0 means no connection.
+
+Why it matters:
+Fast to check if two nodes are connected, but consumes more space.
+
+---
+
+-> Adjacency List
+
+Each node stores a list of its connected nodes.
+
+Why it matters:
+Memory efficient and commonly used in real systems.
+
+---
+
+#  23 – Graph Representation in Detail
+
+==> Adjacency Matrix Explanation
+
+Each row and column represent nodes, and values indicate whether a connection exists.
+
+Why it matters:
+Useful when the graph is dense and frequent lookups are required.
+
+---
+
+==> Adjacency List Explanation
+
+Each node maintains a list of its neighbors.
+
+Why it matters:
+Preferred in most applications because it scales better with large graphs.
+
+---
+
+==> Sparse vs Dense Graph
+
+Sparse graphs have fewer edges, dense graphs have many edges.
+
+Why it matters:
+Helps decide whether to use adjacency list or matrix in system design.
+
+---
+
+==> Space Complexity Insight
+
+Adjacency matrix uses O(V²), adjacency list uses O(V + E).
+
+Why it matters:
+Choosing the wrong representation can lead to performance issues in large-scale systems.
+
+---
+
+#  24 – Graph Traversal
+
+==> DFS (Depth First Search)
+
+Traverse deep into the graph before backtracking. Usually implemented using recursion or stack.
+
+Why it matters:
+Used in problems like cycle detection, path finding, and dependency resolution.
+
+---
+
+==> Visited Array
+
+Tracks which nodes are already visited to avoid infinite loops.
+
+Why it matters:
+Essential for correctness in graphs with cycles.
+
+---
+
+==> BFS (Breadth First Search)
+
+Traverse level by level using a queue.
+
+Why it matters:
+Used for shortest path in unweighted graphs and level-wise processing.
+
+---
+
+==> Queue in BFS
+
+Nodes are processed in FIFO order.
+
+Why it matters:
+Ensures correct traversal order for shortest path problems.
+
+---
+
+==> Difference Between DFS and BFS
+
+DFS goes deep, BFS explores neighbors first.
+
+Why it matters:
+Choosing the right traversal impacts performance and correctness in real systems.
+
+---
+
+#  25 – Shortest Path & Advanced Concepts
+
+==> Dijkstra’s Algorithm
+
+Finds shortest path from a source node in weighted graphs without negative weights.
+
+Why it matters:
+Used in maps, routing systems, and network optimization.
+
+---
+
+==> Bellman-Ford Algorithm
+
+Handles graphs with negative weights.
+
+Why it matters:
+Useful in financial systems or scenarios where costs can decrease.
+
+---
+
+==> Floyd-Warshall Algorithm
+
+Finds shortest paths between all pairs of nodes.
+
+Why it matters:
+Used in systems requiring global path optimization.
+
+---
+
+==> Articulation Points
+
+Nodes whose removal disconnects the graph.
+
+Why it matters:
+Helps identify critical points in networks like servers or routers.
+
+---
+
+==> Bridges in Graph
+
+Edges whose removal disconnects the graph.
+
+Why it matters:
+Used to detect weak links in infrastructure systems.
+
+---
+
+==> Prim’s Algorithm
+
+Used to find Minimum Spanning Tree.
+
+Why it matters:
+Helps in designing cost-efficient networks.
+
+---
+
+==> Tree vs Graph
+
+A tree is a special type of graph with no cycles and a hierarchical structure.
+
+Why it matters:
+Clarifies when to use tree-based vs graph-based approaches.
+
+---
+
+==> Connected Components
+
+Groups of nodes where each node is reachable.
+
+Why it matters:
+Used in clustering, network segmentation, and distributed systems.
+
+---
+
+
+================================================================================================================================
+================================================================================================================================
+
+
+#  26 – What is System Design
+
+===> What is System Design
+
+System Design is the process of designing a system’s architecture, components, modules, interfaces, and data flow to meet specific requirements.
+
+Why it matters:
+This is the foundation of building real-world applications. Without proper design, systems break when scale or complexity increases.
+
+---
+
+===> Architecture
+
+Architecture defines the overall structure of the system and how different parts are organized.
+
+Why it matters:
+A good architecture ensures the system is scalable, maintainable, and easy to extend in the future.
+
+---
+
+===> Components
+
+Components are individual parts of the system like services, databases, APIs, etc.
+
+Why it matters:
+Breaking a system into components makes it easier to build, test, and scale independently.
+
+---
+
+===> Modules
+
+Modules are smaller units inside components that handle specific functionality.
+
+Why it matters:
+Helps in writing clean, reusable, and maintainable code.
+
+---
+
+===> Interfaces (Interaction)
+
+Interfaces define how different components communicate with each other.
+
+Why it matters:
+Clear interfaces prevent tight coupling and make systems easier to modify or replace.
+
+---
+
+===> Data Flow
+
+Data flow defines how data moves between components in the system.
+
+Why it matters:
+Efficient data flow ensures performance and avoids bottlenecks.
+
+---
+
+===> Designing
+
+Designing means mapping requirements into system components and structuring them properly.
+
+Why it matters:
+This is where real engineering decisions happen, not just coding.
+
+---
+
+===> Why System Design – Scalability
+
+Scalability means the system can handle increasing users or traffic without breaking.
+
+Why it matters:
+Real systems grow over time, and without scalability, they fail under load.
+
+---
+
+===> Traffic Growth Understanding
+
+Systems may grow from 100 users to thousands or even millions.
+
+Why it matters:
+You must design systems that work both at small and large scale without rewriting everything.
+
+---
+
+#  27 – Key System Design Principles
+
+===> Performance
+
+Performance is about how fast the system responds under load.
+
+Why it matters:
+Users expect fast responses; slow systems lead to poor experience and drop-offs.
+
+---
+
+===> Dependency Handling (Payment Example)
+
+If a third-party system like a bank fails, your system should still handle requests properly.
+
+Why it matters:
+Real systems depend on external services, so you must design for failures.
+
+---
+
+===> Reliability
+
+Reliability means the system should work correctly even during traffic spikes or failures.
+
+Why it matters:
+Users trust systems that are always available and consistent.
+
+---
+
+===> Maintainability
+
+Maintainability means the system should be easy to update and modify.
+
+Why it matters:
+Systems evolve over time, and difficult-to-maintain systems slow down development.
+
+---
+
+===> Cost Efficiency
+
+System should balance performance and cost, avoiding unnecessary expenses.
+
+Why it matters:
+Over-engineering wastes money, and under-engineering causes failures.
+
+---
+
+===> Fault Tolerance
+
+System should continue working even if some components fail.
+
+Why it matters:
+Failures are inevitable, so systems must handle them gracefully.
+
+---
+
+===> Load Handling
+
+System should distribute load properly across resources.
+
+Why it matters:
+Prevents overload on a single component and improves performance.
+
+---
+
+#  28 – Real World Use Cases
+
+===> Social Media App
+
+-> Real-time Data
+
+Handles feeds, posts, likes, and updates instantly.
+
+Why it matters:
+Users expect immediate updates, which requires efficient system design.
+
+---
+
+-> User Handling
+
+Managing millions of users simultaneously.
+
+Why it matters:
+User management impacts scalability and performance.
+
+---
+
+-> Storage
+
+Stores posts, media, chats, etc.
+
+Why it matters:
+Efficient storage design is critical for performance and cost.
+
+---
+
+-> User Relationships
+
+Handles followers, friends, connections.
+
+Why it matters:
+Graph-like relationships are core to social platforms.
+
+---
+
+-> Notifications
+
+Real-time alerts for activity.
+
+Why it matters:
+Keeps users engaged and active on the platform.
+
+---
+
+===> E-commerce System
+
+-> Product Catalogue
+
+Stores product details and listings.
+
+Why it matters:
+Fast retrieval is required for search and browsing.
+
+---
+
+-> Inventory
+
+Tracks stock availability.
+
+Why it matters:
+Prevents overselling and improves user trust.
+
+---
+
+-> Tracking & Delivery
+
+Tracks orders and logistics.
+
+Why it matters:
+Improves user experience and transparency.
+
+---
+
+-> Payment Gateway
+
+Handles transactions securely.
+
+Why it matters:
+Critical for revenue and must be reliable.
+
+---
+
+-> Recommendation System
+
+Suggests products to users.
+
+Why it matters:
+Drives engagement and increases sales.
+
+---
+
+===> Ride Sharing App
+
+-> Maps Integration
+
+Shows routes and navigation.
+
+Why it matters:
+Accurate mapping is core to the service.
+
+---
+
+-> Nearby Drivers
+
+Finds drivers close to the user.
+
+Why it matters:
+Reduces wait time and improves efficiency.
+
+---
+
+-> Real-time Location
+
+Tracks driver and user live.
+
+Why it matters:
+Essential for coordination and trust.
+
+---
+
+-> Pricing System
+
+Calculates fares dynamically.
+
+Why it matters:
+Ensures fairness and profitability.
+
+---
+
+-> Route Optimization
+
+Finds best routes.
+
+Why it matters:
+Saves time and cost.
+
+---
+
+-> Tracking
+
+Monitors ride progress.
+
+Why it matters:
+Improves safety and user experience.
+
+---
+
+===> Caching
+
+Used to store frequently accessed data.
+
+Why it matters:
+Improves performance and reduces load on databases.
+
+---
+
+#  29 – How System Design Works (Food Delivery Example)
+
+===> Thinking Approach
+
+You should think how the system is designed, how it works, and why decisions are made.
+
+Why it matters:
+System Design is about reasoning, not memorizing.
+
+---
+
+===> Requirement Gathering
+
+Clearly define what the system should do.
+
+Why it matters:
+Wrong requirements lead to wrong design.
+
+---
+
+===> Must-have vs Good-to-have
+
+Separate core features from optional ones.
+
+Why it matters:
+Helps prioritize and build systems incrementally.
+
+---
+
+===> Core Features (Food Delivery App)
+
+-> Real-time Restaurant Listing
+
+Shows available restaurants dynamically.
+
+Why it matters:
+Ensures users see correct and updated data.
+
+---
+
+-> Payment Integration
+
+Supports UPI, cards, COD, etc.
+
+Why it matters:
+Flexible payments improve conversion.
+
+---
+
+-> Offers & Categorization
+
+Filters and organizes items.
+
+Why it matters:
+Improves discoverability and user experience.
+
+---
+
+-> Real-time Order Tracking
+
+Track order status live.
+
+Why it matters:
+Builds trust and transparency.
+
+---
+
+===> Search Functionality
+
+Search based on rating, price, location, food type.
+
+Why it matters:
+Efficient search improves usability.
+
+---
+
+===> User Flow Understanding
+
+User selects items → places order → pays → tracks delivery.
+
+Why it matters:
+Helps design APIs and data flow correctly.
+
+---
+
+===> Real-time Updates
+
+Continuous updates for order and delivery.
+
+Why it matters:
+Requires event-driven or real-time systems.
+
+---
+
+===> Component-based Design
+
+Break system into smaller components instead of writing everything together.
+
+Why it matters:
+Makes system scalable, maintainable, and easier to build.
+
+---
+
+===> Independent Component Design
+
+Each component should be designed separately.
+
+Why it matters:
+Enables independent scaling and development.
+

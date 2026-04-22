@@ -1,0 +1,871 @@
+1. Linked List
+
+A linked list is a linear data structure where elements (nodes) are connected using pointers. Each node contains:
+
+* Data (value)
+* Reference to the next node
+
+Unlike arrays, memory is not continuous.
+
+2. Types of Linked List
+
+a. Singly Linked List
+
+Each node points to the next node.
+
+
+1 → 2 → 3 → 4 → NULL
+
+
+* Traversal is only forward
+* Simple structure
+
+b. Doubly Linked List
+
+Each node has two pointers:
+
+* Previous node
+* Next node
+
+
+NULL ← 1 ⇄ 2 ⇄ 3 ⇄ 4 → NULL
+
+
+* Allows backward traversal
+* Uses more memory
+
+c. Circular Linked List
+
+Last node connects back to the first node.
+
+
+1 → 2 → 3 → 4
+↑           ↓
+← ← ← ← ← ←
+
+
+* No NULL pointer
+* Useful in cyclic processes
+
+d. Circular Doubly Linked List
+
+Combination of circular and doubly linked list.
+
+---
+
+3. Important Concepts in Linked List
+
+a. Slow and Fast Pointer Technique
+
+Used to:
+
+* Find middle element
+* Detect cycles
+
+Logic:
+
+* Slow pointer moves 1 step
+* Fast pointer moves 2 steps
+
+When fast reaches end, slow is at middle.
+
+b. Cycle Detection (Missing but Important)
+
+If slow and fast pointers meet, a cycle exists.
+
+---
+
+4. Reverse Linked List
+
+Goal: reverse direction of pointers
+
+Steps:
+
+1. Keep three pointers: prev, current, next
+2. Reverse links one by one
+
+Time Complexity: O(n)
+
+---
+
+5. Palindrome Linked List
+
+Check if linked list reads same forward and backward.
+
+Steps:
+
+1. Find middle
+2. Reverse second half
+3. Compare both halves
+
+Important addition:
+
+* Restore the list after checking (good practice)
+
+---
+
+1. Stack
+
+Stack follows LIFO (Last In First Out).
+
+Operations:
+
+* Push (insert)
+* Pop (remove top element)
+* Peek (view top element)
+
+Use cases:
+
+* Function calls (call stack)
+* Undo/redo operations
+* Expression evaluation
+
+---
+
+2. Parenthesis Matching Problem
+
+Use stack to validate expressions.
+
+Logic:
+
+* Push opening brackets
+* For closing bracket, check top of stack
+
+Important cases:
+
+* Different types: (), {}, []
+* If stack is empty and closing appears → invalid
+
+---
+
+1. Queue
+
+Queue follows FIFO (First In First Out).
+
+Operations:
+
+* Enqueue (insert)
+* Dequeue (remove)
+
+
+Front → [1, 2, 3, 4] → Rear
+
+
+---
+
+2. Types of Queue
+
+a. Simple Queue
+
+Basic FIFO
+
+b. Deque (Double Ended Queue)
+
+Insertion and deletion from both ends
+
+c. Priority Queue
+
+Elements are processed based on priority, not order
+
+---
+
+d. Missing Concept: Circular Queue
+
+* Avoids memory wastage in array implementation
+* Front and rear wrap around
+
+---
+
+1. HashMap
+
+Stores data in key-value pairs.
+
+Example:
+
+
+Key → Value
+1   → "A"
+2   → "B"
+
+
+a. Advantages
+
+* Fast lookup (O(1) average)
+* Efficient searching
+
+b. Use Cases
+
+* Two Sum problem
+* Frequency counting
+* Duplicate detection
+
+
+c. Hash Function
+
+Converts key into index
+
+d. Collision
+
+When two keys map to same index
+
+Handling techniques:
+
+* Chaining
+* Open addressing
+
+e. Time Complexity
+
+* Average: O(1)
+* Worst: O(n)
+
+---
+
+ Trees
+
+A tree is a hierarchical data structure.
+
+=> Basic Terms
+
+* Root: top node
+* Parent: node with children
+* Child: node under parent
+* Leaf: node with no children
+* Edge: connection between nodes
+* Subtree: part of tree
+
+---
+
+# Binary Tree
+
+Each node has at most 2 children.
+
+
+        1
+      /   \
+     2     3
+
+
+---
+
+=> Height vs Depth
+
+* Height: longest path from node to leaf
+* Depth: distance from root
+
+---
+
+# Binary Search Tree (BST)
+
+Special binary tree where:
+
+* Left subtree < Root
+* Right subtree > Root
+
+
+        10
+       /  \
+      5    15
+     / \   / \
+    3   7 12 21
+
+
+=> Searching in BST
+
+Example: search 12
+
+* 12 > 10 → go right
+* 12 < 15 → go left
+* Found
+
+---
+
+=> Complexity
+
+* Balanced BST: O(log n)
+* Skewed BST: O(n)
+
+---
+
+# Skewed Binary Tree
+
+Tree becomes like a linked list.
+
+ Left Skewed
+
+
+5
+|
+4
+|
+3
+
+
+ Right Skewed
+
+
+5
+ \
+  6
+   \
+    7
+
+
+---
+
+# Balanced Tree
+
+Height difference between left and right subtree is minimal.
+
+Condition:
+|height(left) - height(right)| ≤ 1
+
+---
+
+# AVL Tree
+
+A self-balancing BST.
+
+=> Missing Concept: Rotations
+
+To maintain balance:
+
+* LL Rotation
+* RR Rotation
+* LR Rotation
+* RL Rotation
+
+---
+
+# Red-Black Tree (Introduction)
+
+Another self-balancing tree.
+
+Properties:
+
+* Root is black
+* No two red nodes adjacent
+* Maintains balance automatically
+
+Used in:
+
+* Java TreeMap
+* C++ STL map
+
+---
+
+# Tree Traversals
+
+=> DFS (Depth First Search)
+
+ Preorder
+
+Root → Left → Right
+
+ Inorder
+
+Left → Root → Right
+(Gives sorted output in BST)
+
+ Postorder
+
+Left → Right → Root
+
+---
+
+=> BFS (Breadth First Search)
+
+Level-wise traversal using queue.
+
+
+Level 1: 1
+Level 2: 2, 3
+Level 3: 4, 5, 6, 7
+
+
+---
+
+# Left View of Binary Tree
+
+Nodes visible when viewed from left side.
+
+Example:
+
+
+        1
+      /   \
+     2     3
+    / \
+   4   5
+
+
+Left view: 1, 2, 4
+
+Approach:
+
+* Use BFS
+* Print first node at each level
+
+---
+
+# Vertical View of Binary Tree
+
+Group nodes based on horizontal distance.
+
+Example:
+
+
+        1 (0)
+      /     \
+   2 (-1)   3 (+1)
+   /  \     /  \
+4(-2)5(0) 6(0) 7(+2)
+
+
+Group:
+
+* -2 → 4
+* -1 → 2
+* 0 → 1, 5, 6
+* +1 → 3
+* +2 → 7
+
+Approach:
+
+* Use map + BFS
+
+---
+
+# Searching in Tree
+
+* BFS: level-wise search
+* DFS: deep traversal
+
+BST is optimized for searching
+
+
+
+Covered:
+
+* Linked List and techniques
+* Stack and Queue
+* HashMap basics
+* Trees and BST
+* Traversals and views
+
+These are fundamental building blocks.
+
+==================================================
+
+# 1. Cycle Detection in Linked List
+
+A cycle exists when a node points back to a previous node instead of NULL.
+
+=> Example
+
+
+1 → 2 → 3 → 4 → 5
+          ↑     ↓
+          ← ← ←
+
+
+Here, node 5 points back to node 3.
+
+---
+
+=> How to Detect Cycle (Floyd’s Algorithm)
+
+Use two pointers:
+
+* Slow → moves 1 step
+* Fast → moves 2 steps
+
+ Logic:
+
+* If there is no cycle → fast reaches NULL
+* If there is a cycle → slow and fast will meet
+
+
+Step 1:
+Slow = 1, Fast = 1
+
+Step 2:
+Slow = 2, Fast = 3
+
+Step 3:
+Slow = 3, Fast = 5
+
+Step 4:
+Slow = 4, Fast = 4  → they meet → cycle detected
+
+
+---
+
+=> Finding Start of Cycle (Advanced)
+
+After meeting:
+
+1. Move one pointer to head
+2. Move both one step at a time
+3. Where they meet again = start of cycle
+
+---
+
+=> Why Important
+
+* Detect infinite loops
+* Used in memory structures and system debugging
+
+---
+
+# 2. Circular Queue
+
+A circular queue solves the limitation of a normal queue (wasted space).
+
+=> Problem in Normal Queue
+
+
+[ ][ ][ ][ ][ ]
+ F       R
+
+After dequeues:
+[ ][ ][ ][ ][ ]
+     F     R
+
+Front moved forward but space is wasted
+
+
+---
+
+=> Circular Queue Idea
+
+Rear wraps around to the beginning.
+
+
+[1][2][3][4][5]
+ F           R
+
+After operations:
+
+[6][2][3][4][5]
+ R   F
+
+
+---
+
+=> Key Conditions
+
+* Queue is FULL when:
+
+
+(rear + 1) % size == front
+
+
+* Queue is EMPTY when:
+
+
+front == -1
+
+
+---
+
+=> Why Important
+
+* Used in:
+
+  * CPU scheduling
+  * Buffers (stream processing)
+  * Real-time systems
+
+---
+
+# 3. HashMap Internals
+
+You know HashMap stores key-value pairs. Now understand how it works internally.
+
+---
+
+=> Step 1: Hash Function
+
+Converts key into index
+
+
+index = hash(key) % size
+
+
+Example:
+
+
+key = 12
+index = 12 % 5 = 2
+
+
+---
+
+=> Step 2: Collision
+
+Two keys can map to same index.
+
+Example:
+
+
+12 % 5 = 2
+17 % 5 = 2
+
+
+---
+
+=> Collision Handling
+
+ 1. Chaining
+
+Store multiple elements in same bucket (linked list)
+
+
+Index 2 → [12 → 17 → 22]
+
+
+---
+
+ 2. Open Addressing (basic idea)
+
+Find another empty slot
+
+---
+
+=> Load Factor
+
+
+load factor = number of elements / size of array
+
+
+When load increases:
+
+* HashMap resizes (rehashing)
+
+---
+
+=> Time Complexity
+
+* Average: O(1)
+* Worst: O(n)
+
+---
+
+=> Why Important
+
+Used in:
+
+* Caching (Redis)
+* Databases
+* Fast lookups
+
+---
+
+# 4. AVL Tree Rotations
+
+AVL Tree is a self-balancing BST.
+
+Balance condition:
+
+
+|height(left) - height(right)| ≤ 1
+
+
+If violated → perform rotations
+
+---
+
+=> Case 1: Left-Left (LL Rotation)
+
+Problem:
+
+
+    30
+   /
+  20
+ /
+10
+
+
+Solution: Right Rotation
+
+
+    20
+   /  \
+ 10   30
+
+
+---
+
+=> Case 2: Right-Right (RR Rotation)
+
+Problem:
+
+
+10
+  \
+   20
+     \
+      30
+
+
+Solution: Left Rotation
+
+
+    20
+   /  \
+ 10   30
+
+
+---
+
+=> Case 3: Left-Right (LR Rotation)
+
+Problem:
+
+
+    30
+   /
+  10
+    \
+     20
+
+
+Steps:
+
+1. Left rotate (10)
+2. Right rotate (30)
+
+Result:
+
+
+    20
+   /  \
+ 10   30
+
+
+---
+
+=> Case 4: Right-Left (RL Rotation)
+
+Problem:
+
+
+10
+  \
+   30
+   /
+  20
+
+
+Steps:
+
+1. Right rotate (30)
+2. Left rotate (10)
+
+Result:
+
+
+    20
+   /  \
+ 10   30
+
+
+---
+
+=> Why AVL Matters
+
+* Keeps tree balanced
+* Ensures O(log n) operations
+
+---
+
+# 5. Graph Fundamentals
+
+A graph is a collection of nodes (vertices) and connections (edges).
+
+---
+
+=> Example
+
+
+1 — 2
+|   |
+3 — 4
+
+
+---
+
+=> Types of Graph
+
+ 1. Undirected Graph
+
+Connections are two-way
+
+
+1 — 2
+
+
+---
+
+ 2. Directed Graph
+
+Connections have direction
+
+
+1 → 2
+
+
+---
+
+ 3. Weighted Graph
+
+Edges have weights
+
+
+1 --(5)-- 2
+
+
+---
+
+=> Representation
+
+ Adjacency List
+
+
+1 → [2, 3]
+2 → [1, 4]
+
+
+ Adjacency Matrix
+
+
+   1 2 3
+1 [0 1 1]
+2 [1 0 0]
+3 [1 0 0]
+
+
+---
+
+=> Traversals
+
+ BFS (Queue)
+
+Level-wise traversal
+
+ DFS (Stack/Recursion)
+
+Deep traversal
+
+---
+
+=> Why Graph is Important
+
+Used in:
+
+* Social networks (friends graph)
+* Google Maps (shortest path)
+* Recommendation systems
+* Networking systems
+
