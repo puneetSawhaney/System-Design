@@ -1,0 +1,262 @@
+System Design – Day 4
+1. What is System Design
+
+System Design is the process of designing the architecture of a system by defining:
+
+Components
+Modules
+Interfaces (how components interact)
+Data flow
+
+The goal is to build a system that satisfies a given set of requirements.
+
+In simple terms, system design is about deciding:
+
+How different parts of a system are structured
+How they communicate
+How data moves across the system
+
+Designing means taking requirements and mapping them into a structured system using these building blocks.
+
+2. Why System Design is Important
+Scalability
+
+A system should be able to handle increasing traffic.
+
+Example:
+An e-commerce platform may start with 100 users but later grow to:
+
+1,000 users
+100,000 users
+Millions of users
+
+A well-designed system should scale smoothly without breaking.
+
+Performance
+
+The system should remain fast even under heavy load.
+
+Example:
+During a sale, millions of users may place orders.
+Even if external systems (like banks/payment gateways) are limited, your system should:
+
+Handle requests efficiently
+Prevent system crashes
+Maintain response time
+Reliability
+
+The system should continue to work correctly even during failures or traffic spikes.
+
+If traffic suddenly increases, the system should not crash
+It should handle peak loads gracefully
+Maintainability
+
+The system should be easy to update and modify.
+
+New features should be added without breaking existing ones
+Code and components should be easy to manage
+Cost Efficiency
+
+The system should be optimized in terms of infrastructure cost.
+
+Efficient systems reduce unnecessary resource usage
+Better design leads to lower operational costs
+3. Understanding Use Cases
+
+Before designing any system, we need to understand the use case and its key components.
+
+Social Media Application
+
+Key aspects:
+
+Real-time data (posts, feeds, login/logout)
+User handling
+Storage (posts, media)
+User relationships (followers, friends)
+Notifications
+E-commerce System
+
+Key aspects:
+
+Product catalog
+Inventory management
+Order tracking and delivery
+Notifications
+Payment gateway integration
+User management
+Recommendation system
+Ride Sharing Application
+
+Key aspects:
+
+Maps integration
+Nearby driver detection
+Real-time geolocation
+Pricing logic
+Route optimization
+User handling
+Live tracking
+4. How System Design Works (Example: Food Delivery App)
+Step 1: Define Requirements
+
+Always start with clarity:
+
+What should the system do?
+What are must-have vs good-to-have features?
+
+Core features:
+
+Restaurant listing (real-time availability)
+Payment system
+Offers and pricing
+Real-time order tracking
+Step 2: User Flow
+Search restaurants (based on rating, price, location)
+Select food items
+Place order
+Make payment (UPI, Card, COD)
+Track order in real-time
+Step 3: Break into Components
+
+Instead of jumping into coding, design components:
+
+API Gateway
+User Service
+Order Service
+Payment Service
+Delivery/Tracking Service
+Notification Service
+
+Each component is designed separately and then connected.
+
+5. Core System Components
+
+You identified key components correctly. Here is a refined view:
+
+CDN (Content Delivery Network)
+Used to deliver static content faster
+Database
+Stores application data
+Load Balancer
+Distributes incoming traffic
+Messaging Queue
+Enables asynchronous communication between services
+Gateway (API Gateway)
+Entry point for all client requests
+6. Types of System Design (Architecture Based)
+Monolithic Architecture
+Entire system is a single codebase
+All features are tightly coupled
+
+Pros:
+
+Easy to start
+Simple to develop
+
+Cons:
+
+Hard to scale
+Hard to maintain as system grows
+Distributed Architecture
+System is divided into multiple components
+These components run on different machines
+All components work together to form one system
+Microservices Architecture
+System is divided into independent services
+Each service has:
+Its own codebase
+Its own responsibility
+
+Key idea:
+Each service can be developed, deployed, and scaled independently.
+
+Serverless Architecture
+No need to manage servers manually
+Code runs based on events
+
+Example:
+
+Functions triggered on user actions
+
+Benefits:
+
+Automatic scaling
+Pay only for usage
+Plugin-Based / Modular Architecture
+System allows adding independent modules (plugins)
+
+Example:
+
+IDEs like VS Code
+
+Benefits:
+
+Extend functionality without changing core system
+7. Communication Based Systems
+Client-Server Architecture
+Client sends request
+Server processes and responds
+Peer-to-Peer (P2P)
+Each node acts as both client and server
+
+Example:
+
+Blockchain systems
+Message-Driven Systems
+Communication happens through messages (queues/events)
+Helps in decoupling services
+8. Access Control Based Systems
+Centralized
+Single system handles all requests and logic
+
+Pros:
+
+Simple control
+
+Cons:
+
+Single point of failure
+Decentralized
+Data and services are distributed
+Requests can be handled by multiple systems
+If one system fails, others can take over
+9. Deployment Based Systems
+On-Premise
+Hosted on company’s own servers
+Cloud-Based
+Hosted on cloud platforms like AWS, GCP, Azure
+Hybrid
+Combination of on-premise and cloud
+10. Functionality Based Systems
+Transactional Systems
+Every operation must complete fully or not at all
+
+Example:
+
+Payments
+Data Processing Systems
+Handle large volumes of data
+Real-Time Systems
+Instant processing and response
+
+Example:
+
+Live tracking
+Batch Systems
+Process data in batches
+
+Example:
+
+Nightly reports
+11. Embedded Systems
+Software tightly coupled with hardware
+
+Example:
+
+IoT devices, embedded chips
+Key Understanding from Day 4
+System design is not about coding first, it is about thinking in components
+Every system should be built based on clear requirements
+Different architectures exist for different needs
+Real-world systems are combinations of multiple design patterns
+Breaking systems into smaller components makes them scalable and maintainable
