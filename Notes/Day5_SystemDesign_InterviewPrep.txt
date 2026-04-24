@@ -1,0 +1,168 @@
+System Design — Day 5 Notes
+How to Approach System Design Interviews
+
+System Design interviews are not about giving the perfect architecture.
+They are about showing how you think, clarify, and make trade-offs.
+
+1. Understand the Problem Clearly
+
+Before jumping into solutions, spend time understanding the requirements.
+
+What to ask:
+What exactly are we building?
+Who are the users?
+What is the scale (users, requests per second)?
+What are the key features?
+Break requirements into:
+Functional Requirements
+What the system should do (e.g., post tweets, send messages)
+Non-Functional Requirements
+How the system should behave (e.g., scalability, latency, availability)
+
+
+2. Define the Scope
+
+Do not try to design everything.
+
+Good candidates:
+
+Clarify what to include
+Explicitly mention what is out of scope
+Example:
+
+For a system like Instagram:
+
+Include: posting, feed
+Exclude: stories, reels (if time is limited)
+
+This shows structured thinking.
+
+
+3. Back-of-the-Envelope Estimation
+
+Rough calculations help justify design decisions.
+
+Estimate:
+Number of users
+Requests per second
+Storage requirements
+Bandwidth
+
+This helps decide:
+
+Whether caching is needed
+Whether sharding is required
+
+4. High-Level Design (Core Components)
+
+Start with a simple architecture before going deep.
+
+Basic components:
+Client (Web/Mobile)
+API Server
+Database
+Cache
+Load Balancer
+Example systems to think about:
+WhatsApp
+YouTube
+
+Explain how requests flow between these components.
+
+
+
+5. Data Modeling
+
+Design the database schema based on use cases.
+
+Focus on:
+Entities (User, Post, Message)
+Relationships
+Indexing
+Example:
+
+For a messaging system:
+
+User table
+Chat table
+Message table
+
+
+
+6. Deep Dive into Important Components
+
+Now pick critical parts and go deeper.
+
+Examples:
+Feed generation (push vs pull)
+Message delivery system
+Caching strategy
+Database scaling
+
+This is where you show real understanding.
+
+
+
+7. Identify Bottlenecks
+
+Every system has limits.
+
+Think about:
+Database overload
+High latency
+Single points of failure
+
+Then propose solutions:
+
+Caching
+Load balancing
+Replication
+Sharding
+
+
+
+8. Discuss Trade-offs
+
+There is no perfect system.
+
+Show maturity by discussing:
+
+Consistency vs Availability
+Read vs Write optimization
+Cost vs Performance
+
+Example:
+
+Strong consistency → slower
+Eventual consistency → faster but slightly stale data
+
+
+9. Communication Matters More Than Perfection
+
+The interviewer is evaluating:
+
+How you think
+How you explain
+How you handle feedback
+
+Always:
+Think out loud
+Ask clarifying questions
+Take feedback positively
+
+
+10. Common Mistakes to Avoid
+Jumping directly into solution
+Not clarifying requirements
+Ignoring scalability
+Overcomplicating early
+Not discussing trade-offs
+
+
+Final Insight
+Exepectations related to  System Design:
+
+Structures the problem well
+Justifies decisions with reasoning
+Communicates clearly
+Handles ambiguity confidently
